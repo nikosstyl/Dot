@@ -21,7 +21,7 @@ bool make_dot (struct tree *root, char *dest, bool let_only_img) {
 	strcpy(&fname_png[strlen(fname_png)], ".png");
 	dot = fopen(fname_dot, "wb");
 	if (!dot) {
-		for (i=strlen(fname_dot)-1;i>=0;i++) {
+		for (i=strlen(fname_dot)-1;i>=0;i--) {
 			if (fname_dot[i] == '/') {
 				j = i;
 				break;
