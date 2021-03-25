@@ -7,6 +7,10 @@ bool make_dot (struct tree *root, char *dest, bool let_only_img) {
 	char *temp;
 	pid_t child;
 
+	if (!root || !dest) {
+		fprintf(stderr, "\nerror: Not enough arguments! Aborting\n");
+		return false;
+	}
 	strcpy(fname_dot, dest);
 	strcpy(fname_png, fname_dot);
 	if (strlen(fname_dot)>MAX_FILENAME_NUM) {
