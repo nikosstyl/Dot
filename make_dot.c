@@ -9,11 +9,11 @@ bool make_dot (struct tree *root, char *dest, bool let_only_img) {
 
 	strcpy(fname_dot, dest);
 	strcpy(fname_png, fname_dot);
-	if (30-strlen(fname_dot)<5) {
+	if (strlen(fname_dot)>MAX_FILENAME_NUM) {
 		fprintf(stderr, "\nerror: Very long .dot filename. Aborting\n");
 		return false;
 	}
-	if (30-strlen(fname_png)<5) {
+	if (strlen(fname_png)>MAX_FILENAME_NUM) {
 		fprintf(stderr, "\nerror: Very long .png filename. Aborting\n");
 		return false;
 	}
