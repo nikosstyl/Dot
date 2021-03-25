@@ -10,6 +10,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+#define MAX_FILENAME_NUM 30
+
 struct tree {
 	struct tree* left;
 	struct tree* right;
