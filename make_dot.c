@@ -1,7 +1,7 @@
 #include "make_dot.h"
 
 bool make_dot (struct tree *root, char *dest, bool let_only_img) {
-	FILE *dot=NULL;
+	FILE *dot=NULL, *tmp=NULL;
 	int i, j;
 	char fname_dot[120], fname_png[120];
 	char *temp;
@@ -11,6 +11,13 @@ bool make_dot (struct tree *root, char *dest, bool let_only_img) {
 		fprintf(stderr, "\nerror: Not enough arguments! Aborting\n");
 		return false;
 	}
+	tmp = fopen("/usr/bin/dot", "r");
+	if (!tmp) {
+		fprintf(stderr, "\nerror: Dot is not installed! Install it with the following command (assuming you're on Ubuntu):");
+		fprintf(stderr, "sudo apt install graphviz\n");
+		return false;
+	}
+	fclose(tmp);
 	strcpy(fname_dot, dest);
 	strcpy(fname_png, fname_dot);
 	if (strlen(fname_dot)>MAX_FILENAME_NUM) {
