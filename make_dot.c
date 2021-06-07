@@ -13,8 +13,7 @@ bool make_dot (struct tree *root, char *dest, bool let_only_img) {
 	}
 	tmp = fopen("/usr/bin/dot", "r");
 	if (!tmp) {
-		fprintf(stderr, "\nerror: Dot is not installed! Install it with the following command (assuming you're on Ubuntu):");
-		fprintf(stderr, "sudo apt install graphviz\n");
+		fprintf(stderr, "\nerror: Dot is not installed! Please install it!");
 		return false;
 	}
 	fclose(tmp);
